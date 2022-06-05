@@ -29,12 +29,11 @@ export const WidgetMeteo = ({
   useEffect(() => {
     getDataFromApi(city)
       .then((data) => {
-        console.log(data)
         setTemperature(data.main.temp.toFixed());
         setDesc(data.weather[0].description);
         setLoading(false);
         setError("");
-        setImg(data.weather[0].icon)
+        setImg(data.weather[0].icon);
       })
       .catch((err) => {
         setLoading(false);
@@ -47,9 +46,17 @@ export const WidgetMeteo = ({
       {loading ? (
         <LoadingSpinner />
       ) : error ? (
-        <div className="text-1xl flex justify-center flex-1 items-center h-[72px]"> Veuillez chercher une ville</div>
+        <div className="text-1xl flex justify-center flex-1 items-center h-[72px]">
+          {" "}
+          Veuillez chercher une ville
+        </div>
       ) : (
-        <CityInfo city={city} desc={desc} temperature={temperature} icon={img} />
+        <CityInfo
+          city={city}
+          desc={desc}
+          temperature={temperature}
+          icon={img}
+        />
       )}
       <form
         onSubmit={handleSubmit}
