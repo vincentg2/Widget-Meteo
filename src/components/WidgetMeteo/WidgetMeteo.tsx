@@ -47,7 +47,6 @@ export const WidgetMeteo = ({
         <LoadingSpinner />
       ) : error ? (
         <div className="text-1xl flex justify-center flex-1 items-center h-[72px]">
-          {" "}
           Veuillez chercher une ville
         </div>
       ) : (
